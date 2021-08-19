@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link  th:href="@{/styles/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!--  Custom CSS  -->
+    <link th:href="@{/styles/styles.css}" rel="stylesheet">
+
+
+
+    <title>Miracle Chukwuma</title>
+</head>
+<body>
+
+<div class="bg-image"></div>
+
+<div class="bg-text">
+    <h1 style="font-size:50px; color: whitesmoke">I am Miracle Chukwuma</h1>
+    <h3 style="color: whitesmoke">And I'm <span class="type"></span> </h3>
+</div>
+
+<hr>
+<br>
+<div class="container">
+    <div class="container-fluid" >
+        <h2 style="padding-bottom: 0" class="text-center">PROFILE</h2>
+        <hr>
+        <p>
+            Hardworking student with a high level of analytical and decision-making skills. A good team player and
+            great leader, always seeks to develop others. Humble and dedicated to success. Believe that learning is
+            for a lifetime and always delighted to learn new things.
+        </p>
+    </div>
+    <hr>
+    <br>
+    <div class="container-fluid">
+        <h2 style="padding-bottom: 0" class="text-center">WORK EXPERIENCE</h2>
+        <hr>
+        <p><span class="dot"></span> Outdoor Catering.</p>
+        <p><span class="dot"></span> Spent 12+ months as an apprentice learning the trade of electrical installation.</p>
+        <p><span class="dot"></span> Completed the electrical installation of a two two-bedroom apartment building.</p>
+        <p><span class="dot"></span> Currently working on the electrical installation two buildings.</p>
+        <p><span class="dot"></span> Currently serving as the president of 'CMD' team of developers.</p>
+        <p><span class="dot"></span> Contributed in the development of a recording tracking software for my team of developers.</p>
+
+    </div>
+    <hr>
+    <br>
+    <div class="container-fluid">
+        <h2 style="padding-bottom: 0" class="text-center">EDUCATION</h2>
+        <hr>
+        <p><span class="dot"></span> 400L undergraduate student, Electrical Engineering department, Nnamdi Azikiwe University Awka.</p>
+        <p><span class="dot"></span> Command Day Secondary School Enugu</p>
+    </div>
+    <hr>
+    <br>
+    <div class="container-fluid">
+        <h2 style="padding-bottom: 0" class="text-center">CERTIFICATION AND TRAINING</h2>
+        <hr>
+        <p><span class="dot"></span> IEEE xtreme 14.0 programming competition</p>
+        <p><span class="dot"></span> Jobberman Soft-Skills Training</p>
+        <p><span class="dot"></span> Bright Network's Internship Experience UK: Technology</p>
+        <p><span class="dot"></span> ICSI | CNSS Certified Network Security Specialist</p>
+    </div>
+    <hr>
+    <br>
+    <div class="container-fluid">
+        <h2 style="padding-bottom: 0" class="text-center">PROFESSIONAL MEMBERSHIPS</h2>
+        <hr>
+        <p><span class="dot"></span> International student member IEEE</p>
+        <p><span class="dot"></span> International student member Society Of Petroleum Engineering</p>
+    </div>
+    <hr>
+    <br>
+    <div class="container-fluid">
+        <h2 style="padding-bottom: 0" class="text-center">SKILLS</h2>
+        <hr>
+        <p><span class="dot"></span> Electrical Installation and Maintenance</p>
+        <div>
+            <h6>Software Development</h6>
+            <hr style="width: 30%">
+        </div>
+        <p><span class="dot"></span> Core Java and JavaFx for desktop application development</p>
+        <p><span class="dot"></span> Spring framework for serverside development and full stack Using Thymeleaf</p>
+        <p><span class="dot"></span> Angular for consuming REST APIs</p>
+        <p><span class="dot"></span> SQL -> MySQL, SQLite, H2 Database...</p>
+        <p><span class="dot"></span> Kotlin -> Android</p>
+        <p><span class="dot"></span> HTML</p>
+        <p><span class="dot"></span> CSS</p>
+        <p><span class="dot"></span> Git and GitHub</p>
+    </div>
+
+    <div class="container-fluid">
+        <form>
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="fullName" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">I will never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Message</label>
+                <textarea class="form-control" id="body" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script  th:src="@{/scripts/js/bootstrap.bundle.min.js}"></script>
+
+<script th:src="@{/scripts/typed.js}"></script>
+<script th:inline="javascript">
+    var typed = new Typed('.type', {
+        strings: ["a Software Developer.", "an Electrical Engineering Undergraduate.",
+            "an Electrician."],
+        typeSpeed: 60,
+        backSpeed: 60,
+        loop: true
+    });
+</script>
+</body>
+</html>
