@@ -16,12 +16,10 @@ import java.util.regex.Pattern;
 @Controller
 public class ResumeController {
     private String myEmail = "chukwuma258@gmail.com";
-    private StringBuilder body = new StringBuilder();
 
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
-    private StringBuilder response = new StringBuilder();
 
 
     @Autowired
@@ -39,6 +37,9 @@ public class ResumeController {
 
     @PostMapping("/received")
     public String sendMessage(@ModelAttribute("respondent") Respondent respondent) {
+        StringBuilder body = new StringBuilder();
+        StringBuilder response = new StringBuilder();
+
         respondent.trim();
         if (!respondent.getBody().isEmpty() && !respondent.getName().isEmpty() && !respondent.getSubject().isEmpty()) {
             respondentRepository.save(respondent);
