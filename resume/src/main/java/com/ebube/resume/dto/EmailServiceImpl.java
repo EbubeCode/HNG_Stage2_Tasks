@@ -20,7 +20,7 @@ public class EmailServiceImpl {
             String to, String subject, String text) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom("name");
+            message.setTo(to);
             message.setSubject(subject);
             message.setText(text);
             emailSender.send(message);
@@ -46,7 +46,7 @@ public class EmailServiceImpl {
 
             FileSystemResource file
                     = new FileSystemResource(new File(pathToAttachment));
-            helper.addAttachment("Invoice", file);
+            helper.addAttachment("ChukwumaEbube.pdf", file);
 
             emailSender.send(message);
             // ...

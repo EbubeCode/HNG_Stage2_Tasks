@@ -48,7 +48,7 @@ public class ResumeController {
             ).start();
             if (validate(respondent.getEmail()) && respondent.isWantFile()) {
                 response.append("Dear: ").append(respondent.getName()).append("\n\tThank you for contacting me, you" +
-                        " will find attached the PDF file of resume.");
+                        " will find attached the PDF file of my resume.");
                 new Thread(() -> emailService.sendMessageWithAttachment(
                         respondent.getEmail(),
                         "Miracle Ebube Chukwuma",
