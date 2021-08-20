@@ -3,15 +3,17 @@ package com.ebube.resume.entity;
 import javax.persistence.*;
 
 @Entity
+@Table (name = "respondents")
 public class Respondent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String email;
     private String subject;
     private String body;
+    private boolean wantFile;
 
     public Long getId() {
         return id;
@@ -51,5 +53,13 @@ public class Respondent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isWantFile() {
+        return wantFile;
+    }
+
+    public void setWantFile(boolean wantFile) {
+        this.wantFile = wantFile;
     }
 }

@@ -2,7 +2,7 @@
 
 body, html {
     height: 100%;
-    background-color: #0dcaf0;
+    background-color: gray;
 
 
 }
@@ -21,8 +21,6 @@ body, html {
 
     /* Full height */
     height: 100%;
-
-    border: 3px solid #f1f1f1;
 
     /* Center and scale the image nicely */
     background-position: center;
