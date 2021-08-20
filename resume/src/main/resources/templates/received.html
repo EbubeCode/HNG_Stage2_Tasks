@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap CSS -->
+    <link th:href="@{/styles/css/bootstrap.min.css}" rel="stylesheet">
+
+    <title>Received</title>
+</head>
+<body style="height: 100%; background-color: #e8d6d6;">
+<div class="container" style="padding-top: 10%">
+    <div class="card" style="width: 18rem; margin: auto" >
+        <div class="card-body">
+            <h5 class="card-title">Message Received</h5>
+            <p class="card-text">I have received your message, and will reply as soon as possible</p>
+            <a href="/" class="card-link">Go back to my CV</a>
+        </div>
+    </div>
+</div>
+
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script th:src="@{/scripts/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

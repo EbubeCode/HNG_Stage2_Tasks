@@ -16,18 +16,22 @@ public class EmailServiceImpl {
     @Autowired
     private JavaMailSender emailSender;
 
-    public void sendSimpleMessage(String name,
+    public void sendSimpleMessage(
             String to, String subject, String text) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("name");
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(text);
-        emailSender.send(message);
+        try {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setFrom("name");
+            message.setSubject(subject);
+            message.setText(text);
+            emailSender.send(message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
-    public void sendMessageWithAttachment(String name,
+    public void sendMessageWithAttachment(
             String to, String subject, String text, String pathToAttachment) {
         // ...
 
@@ -36,7 +40,6 @@ public class EmailServiceImpl {
 
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-            helper.setFrom(name);
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(text);

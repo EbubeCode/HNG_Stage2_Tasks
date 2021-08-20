@@ -106,7 +106,7 @@
     </div>
 
     <div class="jumbotron">
-        <form id="my-contact" action="#" th:action="@{/}" method="post" th:object="${respondent}">
+        <form id="my-contact" action="#" th:action="@{/received}" method="post" th:object="${respondent}">
             <div class="row mb-3">
                 <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
@@ -130,27 +130,39 @@
                 <textarea th:field="*{body}" class="form-control" placeholder="Your message" id="floatingTextarea"></textarea>
                 <label for="floatingTextarea">Message</label>
             </div>
+            <br>
+
+            <div class="form-check">
+                <input th:field="*{wantFile}" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                    Would you like the pdf version of my CV?
+                </label>
+            </div>
+            <br>
 
             <button type="submit" class="btn btn-primary">Submit</button>
 
         </form>
 
     </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            <a href="https://internship.zuri.team" target="_blank">
+                <img class="img-thumbnail" src="../static/images/brand-logo.png" th:src="@{/images/brand-logo.png}" alt="HNG logo">
+            </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
 </div>
 
-<!-- Footer -->
-<footer class="page-footer font-small blue">
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">
-        <a href="https:https://internship.zuri.team" target="_blank">
-            <img class="img-thumbnail" src="../static/images/brand-logo.png" th:src="@{/images/brand-log.png}" alt="HNG logo">
-        </a>
-    </div>
-    <!-- Copyright -->
 
-</footer>
-<!-- Footer -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script th:src="@{/scripts/js/bootstrap.bundle.min.js}"></script>

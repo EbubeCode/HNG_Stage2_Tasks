@@ -62,4 +62,11 @@ public class Respondent {
     public void setWantFile(boolean wantFile) {
         this.wantFile = wantFile;
     }
+
+    public void trim() {
+        subject = subject.trim();
+        name = name.trim();
+        body = body.trim();
+        email = email.trim();
+    }
 }

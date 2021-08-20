@@ -10,9 +10,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Controller
 public class ResumeController {
-    String myEmail = "chukwuma258@gmail.com";
+    private String myEmail = "chukwuma258@gmail.com";
+    private StringBuilder body = new StringBuilder();
+
+    private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    private StringBuilder response = new StringBuilder();
+
 
     @Autowired
     private RespondentRepository respondentRepository;
@@ -27,12 +37,34 @@ public class ResumeController {
         return "index";
     }
 
-    @PostMapping("/")
+    @PostMapping("/received")
     public String sendMessage(@ModelAttribute("respondent") Respondent respondent) {
+        respondent.trim();
+        if (!respondent.getBody().isEmpty() && !respondent.getName().isEmpty() && !respondent.getSubject().isEmpty()) {
+            respondentRepository.save(respondent);
+            body.append("From: ").append(respondent.getName()).append("\nEmail: ").append(respondent.getEmail()).append("\n").append(respondent.getBody());
+            new Thread(() -> emailService.sendSimpleMessage(myEmail, respondent.getSubject(),
+                    body.toString())
+            ).start();
+            if (validate(respondent.getEmail()) && respondent.isWantFile()) {
+                response.append("Dear: ").append(respondent.getName()).append("\n\tThank you for contacting me, you" +
+                        " will find attached the PDF file of resume.");
+                new Thread(() -> emailService.sendMessageWithAttachment(
+                        respondent.getEmail(),
+                        "Miracle Ebube Chukwuma",
+                        response.toString(),
+                        "src/main/resources/ChukwumaEbube.pdf"
+                ) ).start();
+            }
+        }
         System.out.println("Register");
-        respondentRepository.save(respondent);
-        emailService.sendSimpleMessage(respondent.getName(), myEmail, respondent.getSubject(),
-                respondent.getBody());
-        return "index";
+        System.out.println(respondent.isWantFile());
+
+        return "received";
+    }
+
+    private static boolean validate(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+        return matcher.find();
     }
 }
